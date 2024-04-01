@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Parameters Page without Result</title>
+    <script>
+        function generateUrl() {
+            var percent = document.getElementById('percent').value;
+            var time = document.getElementById('time').value;
+            var dps = document.getElementById('dps').value;
+            var played = document.getElementById('played').value;
+            var result = 'clear7';
+
+            var queryParams = 'percent=' + percent + '&time=' + time + '&dps=' + dps + '&played=' + played + '&result=' + result;
+            var encodedParams = btoa(queryParams);
+
+            var fullUrl = 'https://actff1.web.sdo.com/project/20240126titansim/index.html#/index?code=' + encodedParams;
+            document.getElementById('generatedUrl').href = fullUrl;
+            document.getElementById('generatedUrl').innerText = fullUrl;
+        }
+    </script>
+</head>
+<body>
+    <h1>Enter Parameters</h1>
+    <label for="percent">Percent:</label>
+    <input type="text" id="percent" name="percent"><br><br>
+    <label for="time">Time:</label>
+    <input type="text" id="time" name="time"><br><br>
+    <label for="dps">DPS:</label>
+    <input type="text" id="dps" name="dps"><br><br>
+    <label for="played">Played:</label>
+    <input type="text" id="played" name="played"><br><br>
+    <button onclick="generateUrl()">Generate URL</button>
+    <p><a id="generatedUrl" href="#" target="_blank">Generated URL will appear here</a></p>
+</body>
+</html>
